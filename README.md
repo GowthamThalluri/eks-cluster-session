@@ -128,3 +128,136 @@ Rollbacks
 Version management
 ReplicaSet management
 
+--------------------------------------
+
+Module 1 — Kubernetes/EKS Foundation
+EKS architecture
+Control plane vs worker nodes
+AWS CLI
+kubeconfig
+kubectl
+Namespace
+Pod
+Module 2 — Workload Management
+ReplicaSet
+Deployment
+Rolling update
+Rollback
+DaemonSet
+StatefulSet
+Job
+CronJob
+Module 3 — Networking
+Pod networking
+Service
+ClusterIP
+NodePort
+LoadBalancer
+Ingress
+AWS Load Balancer Controller
+DNS
+Module 4 — Configuration
+ConfigMap
+Secret
+Environment variables
+Volume-mounted configuration
+Module 5 — Storage
+Storage concepts
+StorageClass
+PersistentVolume
+PersistentVolumeClaim
+EBS CSI
+StatefulSet + PVC
+Module 6 — Security
+ServiceAccount
+Role
+RoleBinding
+ClusterRole
+ClusterRoleBinding
+kubectl auth can-i
+EKS IAM integration
+Module 7 — Scheduling
+Labels
+NodeSelector
+Node Affinity
+Taints
+Tolerations
+PriorityClass
+Module 8 — Reliability & Scaling
+Requests
+Limits
+HPA
+PDB
+Probes
+Rolling deployments
+Module 9 — Advanced Kubernetes
+NetworkPolicy
+InitContainers
+Sidecars
+Lifecycle hooks
+Graceful termination
+Pod security concepts
+
+##The Most Important kubectl Commands
+
+Cluster:
+
+kubectl cluster-info
+kubectl get nodes
+kubectl get nodes -o wide
+kubectl get namespaces
+kubectl api-resources
+
+Resources:
+
+kubectl get pods
+kubectl get deployment
+kubectl get rs
+kubectl get daemonset
+kubectl get statefulset
+kubectl get svc
+kubectl get ingress
+kubectl get configmap
+kubectl get secret
+kubectl get pvc
+kubectl get pv
+kubectl get jobs
+kubectl get cronjobs
+
+All Resources:
+
+kubectl get all -n k8s-demo
+
+YAML:
+
+kubectl apply -f file.yaml
+kubectl delete -f file.yaml
+kubectl get pod <pod> -o yaml
+
+Debugging:
+
+kubectl describe pod <pod>
+kubectl logs <pod>
+kubectl logs <pod> -c <container>
+kubectl exec -it <pod> -- /bin/sh
+
+Watch:
+
+kubectl get pods -w
+
+Labels:
+
+kubectl get pods --show-labels
+kubectl get pods -l app=nginx
+
+Scheduling:
+
+kubectl get nodes --show-labels
+kubectl describe node <node>
+
+Events:
+
+kubectl get events \
+  -n k8s-demo \
+  --sort-by='.lastTimestamp'
+
