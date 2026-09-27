@@ -1,0 +1,15 @@
+apiVersion: policy/v1
+kind: PodDisruptionBudget
+
+metadata:
+  name: nginx-pdb
+  namespace: k8s-demo
+
+spec:
+
+  minAvailable: 2
+
+  selector:
+
+    matchLabels:
+      app: nginx
