@@ -1,0 +1,17 @@
+apiVersion: v1
+kind: Pod
+
+metadata:
+  name: node-selector-demo
+  namespace: k8s-demo
+
+spec:
+
+  nodeSelector:
+
+    workload: demo
+
+  containers:
+
+    - name: nginx
+      image: nginx:1.27
