@@ -1,0 +1,26 @@
+apiVersion: v1
+kind: Pod
+
+metadata:
+  name: init-demo
+  namespace: k8s-demo
+
+spec:
+
+  initContainers:
+
+    - name: init-container
+      image: busybox:1.36
+
+      command:
+        - sh
+        - -c
+        - |
+          echo "Initializing application..."
+          sleep 10
+          echo "Initialization completed."
+
+  containers:
+
+    - name: nginx
+      image: nginx:1.27
